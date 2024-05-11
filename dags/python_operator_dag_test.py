@@ -14,7 +14,7 @@ def make_hello(task_instance,age):
 
 
 def get_name(task_instance):
-    task_instance.xcom_push(key = 'first_name',value='bob')
+    task_instance.xcom_push(key = 'first_name',value='bob') # Note, the max size for Xcom is 48kb
     task_instance.xcom_push(key = 'last_name',value='marley')
 
 with DAG(dag_id  = 'python_test_dag_v06',
