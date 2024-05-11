@@ -1,0 +1,3 @@
+
+to install dependencies, add to requirements.txt then docker-compose down and then to up do:
+docker-compose up -d --no-deps --build
