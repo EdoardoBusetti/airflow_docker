@@ -7,7 +7,7 @@ default_args = {'owner':'edo',
 'retry_delay':timedelta(minutes=2),
 }
 
-with DAG(dag_id  = 'my_first_dag_v3',
+with DAG(dag_id  = 'my_first_dag_v4',
     description = 'my first day yeeee',
     default_args = default_args,
     start_date = datetime(2024,5,8),
