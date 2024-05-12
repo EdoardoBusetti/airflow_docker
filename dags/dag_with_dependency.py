@@ -6,7 +6,7 @@ default_args = {'owner':'edo',
 'retry_delay':timedelta(minutes=2),
 }
 
-@dag(dag_id = 'dag_with_dependency_v01',
+@dag(dag_id = 'dag_with_dependency_v02',
      default_args=default_args,
      start_date = datetime(2024,5,10),
     schedule_interval = '0 0 * * *'
@@ -14,10 +14,10 @@ default_args = {'owner':'edo',
 def hello_world_etl():
 
     @task()
-    def get_sklearn():
-        import sklearn
-        print(f'sklearn version: {sklearn.__version__}')
+    def get_import_stuff():
+        import selenium
+        print(f'selenium version: {selenium.__version__}')
     
-    get_sklearn()
+    get_import_stuff()
 
-greet_dag = hello_world_etl()
+import_dag = hello_world_etl()

@@ -1,3 +1,10 @@
 
-to install dependencies, add to requirements.txt then docker-compose down and then to up do:
-docker-compose up -d --no-deps --build
+to install dependencies, add to requirements.txt then docker-compose down and then:
+
+Then build the new image
+---> sudo docker build . --no-cache --tag extending_airflow_edo:latest
+
+make sure that in the docker-compose.yaml you usa the same image tag 
+---> e.g. image: ${AIRFLOW_IMAGE_NAME:-extending_airflow_edo:latest}
+compose up docker
+---> docker-compose up -d --no-deps --build

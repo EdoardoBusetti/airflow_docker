@@ -128,6 +128,12 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+  selenium:
+    container_name: remote_chromedriver
+    image: seleniarm/standalone-chromium:latest
+    ports:
+      - 4444:4444
+    restart: always
 
   airflow-triggerer:
     <<: *airflow-common
@@ -227,3 +233,4 @@ services:
 
 volumes:
   postgres-db-volume:
+
