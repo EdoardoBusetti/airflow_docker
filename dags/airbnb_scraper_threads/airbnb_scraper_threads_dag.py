@@ -17,10 +17,10 @@ default_args = {'owner':'edo',
 
 
 
-with DAG(dag_id  = 'airbnb_scraper_threads_dag_v02',
+with DAG(dag_id  = 'airbnb_scraper_threads_dag_v08',
     description = 'test 123',
     default_args = default_args,
-    start_date = datetime(2024,5,10),
+    start_date = datetime(2024,5,11),
     schedule_interval = '@daily'
 
 ) as dag:

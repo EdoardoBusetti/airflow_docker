@@ -50,11 +50,14 @@ def driver_setup():
     if settings.HEADLESS:
         options = Options()
         options.add_argument('--headless')
+        mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+        options.add_argument(f"user-agent={mock_user_agent}")
+
     else:
         options = None
  
     
-    remote_webdriver = 'remote_chromedriver'
+    remote_webdriver = 'remote_geckodriver'
     driver = webdriver.Remote(f'{remote_webdriver}:4444/wd/hub', options=options)
     return driver
 
