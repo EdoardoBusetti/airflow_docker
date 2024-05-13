@@ -57,7 +57,7 @@ def driver_setup():
         options = None
  
     
-    remote_webdriver = 'remote_geckodriver'
+    remote_webdriver = 'remote_chromedriver'
     driver = webdriver.Remote(f'{remote_webdriver}:4444/wd/hub', options=options)
     return driver
 
@@ -170,6 +170,9 @@ def get_available_rooms_at_link(link_to_get,result_queue=None):
                 EC.visibility_of_element_located((By.XPATH,"""//*[@id="site-content"]/div/div[2]/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/div/div/div/a"""))
             )
             
+        logger.info(f"number_of_pages: {i+1}/{number_of_pages}")
+    logger.info(f"Got all room links. quitting driver")
+    driver.quit()
     for room_url in full_list_of_room_links:
         room_ids = re.findall(r'\/rooms\/(\w+)\?', room_url)
         room_id = room_ids[0] if room_ids else None
@@ -180,4 +183,5 @@ def get_available_rooms_at_link(link_to_get,result_queue=None):
         else:
             logger.warning(f"No room_id found in url: {room_url}") # known reason for this now is "Luxe" apartments which have different links. For now we ignore those.
 
+    logger.info(f"returning")
     return 'ok' if result_queue else full_list_of_room_links

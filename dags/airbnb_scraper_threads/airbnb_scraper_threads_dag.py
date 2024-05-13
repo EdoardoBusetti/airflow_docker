@@ -17,7 +17,7 @@ default_args = {'owner':'edo',
 
 
 
-with DAG(dag_id  = 'airbnb_scraper_threads_dag_v08',
+with DAG(dag_id  = 'airbnb_scraper_threads_dag_v11',
     description = 'test 123',
     default_args = default_args,
     start_date = datetime(2024,5,11),

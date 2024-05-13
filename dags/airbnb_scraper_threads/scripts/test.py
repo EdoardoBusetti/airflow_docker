@@ -32,6 +32,7 @@ def main():
     print(a)
 
     driver = driver_setup()
-    driver.get(link_to_get)
+    driver.get('https://en.wikipedia.org/wiki/Thank_You_(Meghan_Trainor_album)')
 
     print(driver.page_source)
+    driver.quit()
